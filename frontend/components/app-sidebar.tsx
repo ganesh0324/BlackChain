@@ -17,8 +17,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
   SidebarFooter,
-} from "./ui/sidebar"
-import { Button } from "../components/ui/button"
+} from "@/components/ui/sidebar"
+import { Button } from "@/components/ui/button"
 
 const navigation = [
   {

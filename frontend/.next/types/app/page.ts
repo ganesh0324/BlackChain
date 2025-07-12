@@ -1,4 +1,4 @@
-// File: C:\Users\parju\Workspace\BlackChain\frontend\app\page.tsx
+// File: F:\Computer Engineering Works\Codezzz\Blockchain\blackchain\vzero\blackchain\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
