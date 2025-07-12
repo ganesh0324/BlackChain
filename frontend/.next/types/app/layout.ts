@@ -1,4 +1,4 @@
-// File: F:\Computer Engineering Works\Codezzz\Blockchain\blackchain\vzero\blackchain\app\layout.tsx
+// File: F:\Computer Engineering Works\Codezzz\Blockchain\blackchain\BlackChain\frontend\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
