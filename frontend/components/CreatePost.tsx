@@ -1,6 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState } from "react";
+import { useCurrentAccount } from "@mysten/dapp-kit";
+import { PostStatusButton } from "./PostStatusButton";
 
 interface CreatePostProps {
   onPost: (emoji: string) => void
@@ -10,6 +12,7 @@ interface CreatePostProps {
 const emojis = ["😄", "👍", "❤️", "😢", "😮", "😡", "🎉", "🤔"]
 
 export function CreatePost({ onPost, loading }: CreatePostProps) {
+  const account = useCurrentAccount();
   const [selectedEmoji, setSelectedEmoji] = useState("")
 
   const handlePost = () => {
@@ -21,7 +24,7 @@ export function CreatePost({ onPost, loading }: CreatePostProps) {
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-lg font-semibold mb-4">Share Your Status</h2>
+      <h2 className="text-lg font-semibold mb-4">account?   </h2>
 
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">How are you feeling?</label>
@@ -40,13 +43,7 @@ export function CreatePost({ onPost, loading }: CreatePostProps) {
         </div>
       </div>
 
-      <button
-        onClick={handlePost}
-        disabled={!selectedEmoji || loading}
-        className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
-      >
-        {loading ? "Posting..." : "Post Status"}
-      </button>
+      <PostStatusButton emoji = {selectedEmoji} onPosted={() => console.log("I have posted la dost")}/>
     </div>
   )
 }

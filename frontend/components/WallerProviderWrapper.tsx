@@ -1,6 +1,7 @@
 // components/WalletProviderWrapper.tsx
 'use client';
 
+import { TESTNET_BLACKCHAIN_PACKAGE_ID } from '@/consants';
 import { createNetworkConfig, SuiClientProvider, WalletProvider } from '@mysten/dapp-kit';
 import { getFullnodeUrl } from '@mysten/sui/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
