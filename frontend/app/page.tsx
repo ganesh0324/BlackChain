@@ -9,6 +9,7 @@ import { Status } from "@/lib/types"
 import { useRecentStatuses } from "@/hooks/useRecentStatuses"
 import { TESTNET_BLACKCHAIN_PACKAGE_ID } from "@/lib/networkConfig"
 import { useCurrentAccount } from "@mysten/dapp-kit"
+import { LoginButton } from "@/components/LoginButton"
 
 const mockStatuses: Status[] = [
   {
@@ -46,7 +47,8 @@ export default function HomePage() {
             <h1 className="text-xl font-semibold">
               {currentPage === "home" ? "Home Feed" : currentPage === "status" ? "My Status" : "Connect Wallet"}
             </h1>
-            <WalletButton />
+            <LoginButton />
+            {/* <WalletButton /> */}
           </div>
         </header>
 

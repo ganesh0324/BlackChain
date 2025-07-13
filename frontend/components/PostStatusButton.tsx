@@ -28,7 +28,7 @@ export function PostStatusButton({
       target: `${blackPackageId}::black_contract::post_status`,
       arguments: [
         tx.pure.string(emoji),
-        tx.object('0x6'), // Global Clock object (for testnet)
+        tx.object('0x6'), // Global Clock object 
       ],
     });
 
