@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Transaction } from '@mysten/sui/transactions';
 import { useSignAndExecuteTransaction, useSuiClient } from '@mysten/dapp-kit';
-import { TESTNET_BLACKCHAIN_PACKAGE_ID } from '@/consants';
+import { TESTNET_BLACKCHAIN_PACKAGE_ID } from '@/lib/networkConfig';
 
 export function PostStatusButton({
   emoji,

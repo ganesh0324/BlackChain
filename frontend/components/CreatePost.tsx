@@ -24,8 +24,7 @@ export function CreatePost({ onPost, loading }: CreatePostProps) {
 
   return (
     <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-lg font-semibold mb-4">account?   </h2>
-
+      <h2 className="text-lg font-semibold mb-4">Share your status!</h2>
       <div className="mb-4">
         <label className="block text-sm font-medium mb-2">How are you feeling?</label>
         <div className="grid grid-cols-4 gap-2">
@@ -43,7 +42,7 @@ export function CreatePost({ onPost, loading }: CreatePostProps) {
         </div>
       </div>
 
-      <PostStatusButton emoji = {selectedEmoji} onPosted={() => console.log("I have posted la dost")}/>
+      <PostStatusButton emoji = {selectedEmoji} onPosted={onPost}/>
     </div>
   )
 }

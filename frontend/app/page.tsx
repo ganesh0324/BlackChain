@@ -5,15 +5,11 @@ import { Sidebar } from "@/components/Sidebar"
 import { CreatePost } from "@/components/CreatePost"
 import { StatusFeed } from "@/components/StatusFeed"
 import { WalletButton } from "@/components/WalletButton"
+import { Status } from "@/lib/types"
+import { useRecentStatuses } from "@/hooks/useRecentStatuses"
+import { TESTNET_BLACKCHAIN_PACKAGE_ID } from "@/lib/networkConfig"
+import { useCurrentAccount } from "@mysten/dapp-kit"
 
-export interface Status {
-  id: string
-  emoji: string
-  userAddress: string
-  timestamp: string
-}
-
-// Mock data
 const mockStatuses: Status[] = [
   {
     id: "1",
@@ -30,36 +26,21 @@ const mockStatuses: Status[] = [
 ]
 
 export default function HomePage() {
-  const [statuses, setStatuses] = useState<Status[]>(mockStatuses)
+  const {statuses, loading} = useRecentStatuses(TESTNET_BLACKCHAIN_PACKAGE_ID);
   const [currentPage, setCurrentPage] = useState("home")
-  const [loading, setLoading] = useState(false)
 
   const handleNewPost = async (emoji: string) => {
-    setLoading(true)
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    const newStatus: Status = {
-      id: Date.now().toString(),
-      emoji,
-      userAddress: "0x1234567890abcdef",
-      timestamp: new Date().toISOString(),
-    }
-
-    setStatuses((prev) => [newStatus, ...prev])
-    setLoading(false)
-    alert("Status posted successfully!")
+    console.log("Post done successfully with emoji: ", emoji);
+    // alert("Status posted successfully!")
   }
-
-  const myStatuses = statuses.filter((s) => s.userAddress === "0x1234567890abcdef")
+  const userAddress = useCurrentAccount()?.address;
+  const myStatuses = statuses.filter((s) => s.userAddress === userAddress)
 
   return (
     <div className="flex h-screen">
       <Sidebar currentPage={currentPage} onPageChange={setCurrentPage} />
 
       <div className="flex-1 flex flex-col">
-        {/* Header */}
         <header className="bg-white border-b border-gray-200 p-4">
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-semibold">
